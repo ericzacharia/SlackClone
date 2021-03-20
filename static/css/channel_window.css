@@ -1,0 +1,133 @@
+/*------------------------------------------------------------------
+[ sidebar ]*/
+
+.sidebar {
+  height: 90%;
+  width: 25%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: #333333;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-left: 10px;
+  border: 2px solid grey;
+
+}
+
+.sidebar-welcome {
+  height: 10%;
+  width: 25%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color: white;
+  background: url(../images/redbackground.jpg) no-repeat center;
+  background-size: cover;
+  border: 2px solid grey;
+}
+
+.sidebar-welcome p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.sidebar-title {
+  color: #F00000;
+  padding-left: 3px;
+}
+
+
+.sidebar-channel-container {
+  display: flex;
+
+}
+
+
+.sidebar-channel {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: inline;
+}
+
+
+.sidebar-channel:hover {
+  color: #D00000;
+  transition: 0.5s;
+}
+
+
+.sidebar-channel-unread-count {
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+}
+
+
+#sidebar-create-btn {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  padding-bottom: 20px;
+  background-color: #333333;
+}
+
+#sidebar-create-channel {
+  height: 30%;
+  width: 25%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.sidebar-create-channel-container {
+  margin: 10px;
+  background-color: #444444;
+  /* background-color: #333333; */
+  border: 2px solid #f1f1f1;
+  border-radius: 20px;
+}
+
+#sidebar-create-channel-close-btn {
+  font-family: Arial;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: inline;
+  padding-top: 0 20px;
+  margin-bottom: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: #333333;
+  border-radius: 20px;
+}
+
+#sidebar-create-channel-btn {
+  font-family: Arial;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  padding-top: 0 20px;
+  margin-bottom: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: #333333;
+  border-radius: 20px;
+}
+
+#sidebar-create-channel-btn:hover {
+  background-color: #552222;
+  transition: 0.5s;
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Belay</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/base.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/channel_window.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/chat_window.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/reply_thread.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:5000/static/css/drop_down_menu.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="channel-page" class="channel-page" style="display: none;">
+        <div class="sidebar-welcome">
+            <p id="sidebar-welcome-username"></p>
+            <p id="sidebar-welcome-email"></p>
+        </div>
+        <div class="sidebar">
+            <h3 class="sidebar-title">Channel</h3>
+
+            <div id="sidebar-container">
+
+                <a id="sidebar-create-btn">+ New</a>
+
+                <div id="sidebar-create-channel" style="display: none;">
+                    <div class="sidebar-create-channel-container">
+                        <div class="input1">
+                            <label class="input3">Create a new channel</label>
+                            <input id="sidebar-create-channel-name" class="input3" placeholder="New Channel Name..."
+                                type="text">
+                        </div>
+
+                        <div class="wrapper-button">
+                            <button id="sidebar-create-channel-close-btn" class="sidebar-create-channel-close-btn">
+                                Cancel
+                            </button>
+
+                            <button id="sidebar-create-channel-btn" class="sidebar-create-channel-btn">
+                                Create
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="thread-page" style="display: none;">
+            <h3 id="thread-page-title"></h3>
+            <p id="thread-page-replyid"></p>
+            <div id="thread-page-container">
+                <a id="thread-close-btn">Close</a>
+                <div class="thread-page-send-form-container">
+
+                    <label class="input3"><b>Message</b></label>
+                    <textarea id="thread-page-send-text-area" placeholder="Type message.." class="input3"
+                        required></textarea>
+                    <br>
+                    <button id="thread-page-send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-page" style="margin-left:25%">
+            <div class="chat-page-title-container">
+                <h1 id="chat-page-title-name">Belay Chat Window</h1>
+            </div>
+
+            <div class="dropdown">
+                <button onclick="dropdown()" class="dropbtn">Settings</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a id="dropdown-content-change-username" class="txt2">Change Username</a>
+                    <a id="dropdown-content-change-email" class="txt2">Change Email</a>
+                </div>
+            </div>
+
+            <div class="chat-page-content-big-container">
+                <div id="chat-page-content-container">
+                    <div id="chat-page-more-message" style="display: block;">
+                        <a id="chat-page-more-message-btn">display more messages</a>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="chat-page-send-container">
+                <div class="chat-page-send-form-container">
+
+                    <label class="input3"><b>Message</b></label>
+                    <textarea id="chat-page-send-text-area" placeholder="Type message.." class="input3"
+                        required></textarea>
+                    <br>
+
+                    <button id="chat-page-send-btn">Send</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div id="forget-password-page" class="forget-password-page" style="display: none;">
+        <div class="wrapper">
+            <div class="login-width">
+                <div class="login-form">
+                    <span class="title-form">
+                        Forget password?
+                        <br>
+                        <a>Fill the form and we will send you a link to reset your password!</a>
+                    </span>
+
+                    <div class="input1">
+                        <label class="input3">Email</label>
+                        <input id="forget-password-email" class="input3" type="text" name="email">
+                    </div>
+
+                    <div class="wrapper-button">
+                        <button id="forget-password-btn" class="form-button">
+                            Send Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="change-password-page" class="change-password-page" style="display: none;">
+        <div class="wrapper">
+            <div class="login-width">
+                <div class="login-form">
+                    <span class="title-form">
+                        Change your password
+                        <br>
+                        <a>Fill the form and change your password!</a>
+                    </span>
+
+                    <div class="input1">
+                        <label class="input3">Email</label>
+                        <input id="change-password-email" class="input3" type="text" name="email">
+                    </div>
+
+                    <div class="input1">
+                        <label class="input3">New Password</label>
+                        <input id="change-password-password" class="input3" type="password" name="password">
+                    </div>
+
+                    <div class="input1">
+                        <label class="input3">Re-Enter Password</label>
+                        <input id="change-password-password-again" class="input3" type="password" name="password-again">
+                    </div>
+
+                    <div class="wrapper-button">
+                        <button id="change-password-btn" class="form-button">
+                            Change Password
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="login-page" class="login-first" style="display: none;">
+        <div class="wrapper">
+            <div class="login-width">
+                <div class="login-form">
+                    <span class="title-form">
+                        Don't slack off. <div>
+                            <emphasize id="Belay">Belay</emphasize> today!
+                        </div>
+                    </span>
+
+                    <div class="input1">
+                        <label class="input2">Email</label>
+                        <input id="login-login-email" class="input2" type="text" name="email">
+                    </div>
+
+                    <div class="input1">
+                        <label class="input2">Password</label>
+                        <input id="login-login-password" class="input2" type="password" name="password">
+                    </div>
+
+                    <div class="wrapper-button">
+                        <button id="login-login-btn" class="form-button">
+                            Login
+                        </button>
+                    </div>
+
+                    <ul class="login-more">
+                        <li>
+                            <a id="login-forget-password" class="login-links">
+                                Forgot Password?
+                            </a>
+                        </li>
+
+                        <li>
+                            <span class="new-to-belay">
+                                New to Belay?
+                            </span>
+                            <a id="login-signup" class="login-links">
+                                Sign up!
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="change-username-page" class="change-username-page" style="display: none;">
+        <div class="wrapper">
+            <div class="login-width">
+                <div class="login-form">
+                    <span class="title-form">
+                        Change your username
+                        <br>
+                        <a>Fill the form and change your username!</a>
+                    </span>
+
+                    <div class="input1">
+                        <label class="input3">New Username</label>
+                        <input id="change-username" class="input3" type="text" name="email">
+                    </div>
+
+                    <div class="wrapper-button">
+                        <button id="change-username-btn" class="form-button">
+                            Change Username
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="signup-page" class="signup-page" style="display: none;">
+        <div class="wrapper">
+            <div class="login-width">
+                <div class="login-form">
+                    <span class="title-form">
+                        Sign up
+                        <br>
+                        <a>Fill the form and start to chat!</a>
+                    </span>
+
+                    <div class="input1">
+                        <label class="input3">Email</label>
+                        <input id="login-signup-email" class="input3" type="text" name="email">
+                    </div>
+
+                    <div class="input1">
+                        <label class="input3">Username</label>
+                        <input id="login-signup-username" class="input3" type="text" name="username">
+                    </div>
+
+                    <div class="input1">
+                        <label class="input3">Password</label>
+                        <input id="login-signup-password" class="input3" type="password" name="password">
+                    </div>
+
+                    <div class="input1">
+                        <label class="input3">Re-Enter Password</label>
+                        <input id="login-signup-password-again" class="input3" type="password" name="password-again">
+                    </div>
+
+                    <div class="wrapper-button">
+                        <button id="login-signup-btn" class="form-button">
+                            Sign up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="http://localhost:5000/static/js/base.js"></script>
+    <script src="http://localhost:5000/static/js/reply_thread.js"></script>
+    <script src="http://localhost:5000/static/js/channel_window.js"></script>
+    <script src="http://localhost:5000/static/js/chat_window.js"></script>
+    <script src="http://localhost:5000/static/js/drop_down_menu.js"></script>
+
+</body>
+
+</html>
